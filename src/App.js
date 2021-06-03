@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+
 import './App.css';
+// import UserCard from './src/UserCard';
 
 class App extends Component {
   constructor() {
@@ -13,21 +15,20 @@ class App extends Component {
   componentDidMount() {
     axios.get('https://randomuser.me/api?results=25')
       .then(res => {
-        const arrayOfUsers = res.data
-        this.setState({ arrayOfUsers })
+        const arrayOfUsers = res.data.results
+        this.setState({ arrayOfUsers });
+        console.log(arrayOfUsers);
       })
   }
 
   render() {
     return (
-      <div class='App'>
-        <header class='Header'>
+      <div class="App">
+        <header class="Header">
           <ol>
             {this.state.arrayOfUsers.map((user, index) => {
               return(
-              <li>{user.firstname}</li>,
-              <li>{user.lastname}</li>,
-              <li>{user.thumbnail}</li>
+              <li key={index}>{user.name.first}</li>
                 )
             })}
           </ol>
@@ -37,4 +38,4 @@ class App extends Component {
   };
 }
 
-  export default App;
+export default App;
