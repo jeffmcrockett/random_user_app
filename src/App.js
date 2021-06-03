@@ -17,18 +17,17 @@ class App extends Component {
       .then(res => {
         const arrayOfUsers = res.data.results
         this.setState({ arrayOfUsers });
-        console.log(arrayOfUsers);
       })
   }
 
   render() {
     return (
-      <div class="App">
-        <header class="Header">
+      <div className="App">
+        <header className="Header">
           <ol>
             {this.state.arrayOfUsers.map((user, index) => {
               return(
-              <li key={index}>{user.name.first}</li>
+              <li key={index}>{user.name.first} {user.name.last}</li>
                 )
             })}
           </ol>
