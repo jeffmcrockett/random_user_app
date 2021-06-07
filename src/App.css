@@ -36,3 +36,27 @@
     transform: rotate(360deg);
   }
 }
+
+.nameButton {
+  width: 70px;
+  height: 30px;
+  margin-left: 20px;
+}
+
+.hideButton {
+  width: 70px;
+  height: 30px;
+  margin-left: 20px;
+}
+
+#nameButton1 {
+  display: inline;
+}
+
+#hideButton1 {
+  display: none;
+}
+
+#contactDetails {
+  display: none;
+}

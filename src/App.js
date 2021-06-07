@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import './App.css';
-// import UserCard from './src/UserCard';
 
 class App extends Component {
   constructor() {
@@ -27,7 +26,14 @@ class App extends Component {
           <ol>
             {this.state.arrayOfUsers.map((user, index) => {
               return(
-              <li key={index}>{user.name.first} {user.name.last}</li>
+              <li key={index}>{user.name.first} {user.name.last}
+                <button className="nameButton" id="nameButton1" value="submit" onClick="showDetails()">Contact</button>
+                <button className="hideButton" id="hideButton1" value="submit" onClick="hideDetails()">Hide</button>
+                <br></br>
+                <p key={index} id="contactDetails">
+                  phone - {user.phone}, email - {user.phone}
+                </p>
+              </li>
                 )
             })}
           </ol>
@@ -37,4 +43,13 @@ class App extends Component {
   };
 }
 
+function showDetails() {
+  document.getElementById('nameButton1').style.display = "inline";
+}
+
+function hideDetails() {
+  document.getElementById('hideButton1').style.display = "none";
+}
+
+export {showDetails, hideDetails};
 export default App;
